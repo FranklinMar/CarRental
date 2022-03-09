@@ -1,7 +1,6 @@
 package repository;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -13,17 +12,7 @@ public abstract class Repository<T> {
     abstract List<T> findAll() throws SQLException;
     abstract void deleteById(Integer id) throws SQLException;
 
-    public boolean connect(String URL) {
-        if (URL == null){
-            connector = null;
-            return false;
-        }
-        try {
-            connector = DriverManager.getConnection(URL);
-            return true;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
+    public Repository(Connection connection) {
+        connector = connection;
     }
 }

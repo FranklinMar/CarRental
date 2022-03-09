@@ -11,13 +11,8 @@ import java.util.List;
 
 public class OrdersRepository extends Repository<Orders>{
 
-    private static OrdersRepository instance;
-
-    public static synchronized OrdersRepository getInstance() {
-        if (instance == null){
-            instance = new OrdersRepository();
-        }
-        return instance;
+    public OrdersRepository(Connection connection){
+        super(connection);
     }
 
     @Override

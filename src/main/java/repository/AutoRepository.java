@@ -8,13 +8,8 @@ import java.util.List;
 
 public class AutoRepository extends Repository<Auto>{
 
-    private static AutoRepository instance;
-
-    public static synchronized AutoRepository getInstance() {
-        if (instance == null){
-            instance = new AutoRepository();
-        }
-        return instance;
+    public AutoRepository(Connection connection){
+        super(connection);
     }
 
     @Override

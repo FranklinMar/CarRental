@@ -10,13 +10,8 @@ import java.util.List;
 //@NoArgsConstructor
 public class UserRepository extends Repository<User>{
 
-    private static UserRepository instance;
-
-    public static synchronized UserRepository getInstance() {
-        if (instance == null){
-            instance = new UserRepository();
-        }
-        return instance;
+    public UserRepository(Connection connection){
+        super(connection);
     }
 
     @Override
